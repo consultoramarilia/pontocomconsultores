@@ -20,11 +20,20 @@ body {
 }
 
 header {
+  width: 100%;
+  position: fixed;
   height: 100px;
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 10;
+}
+
+main {
+  position: relative;
+  top: 100px;
+  margin-bottom: 30px;
 }
 
 header nav ul a {
@@ -60,6 +69,13 @@ a.button_inscrever:hover {
   align-items: center;
 }
 
+.containerMenu nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .logo {
   width: 120px;
 }
@@ -79,6 +95,12 @@ li {
   height: auto;
 }
 
+@media (max-width: 900px) {
+  .imgBanner {
+    display: none;
+  }
+}
+
 main {
   background: #571db2;
   padding: 60px 0;
@@ -90,12 +112,19 @@ main {
   margin: 0 auto;
   display: flex;
   height: 50vh;
+  min-height: 400px;
   justify-content: center;
   align-items: center;
 }
 
 .blocoText {
   padding-right: 80px;
+}
+
+@media (max-width: 900px) {
+  .blocoText {
+    padding: 0;
+  }
 }
 
 .blocoText p {
@@ -115,6 +144,12 @@ main {
   fill: #571db2;
 }
 
+@media (max-width: 650px) {
+  .ondas {
+    width: calc(239% + 1.3px);
+  }
+}
+
 .title {
   color: #eee;
   margin-bottom: 20px;
@@ -130,6 +165,7 @@ main {
   text-transform: uppercase;
   font-size: 1.3rem;
   transition: background 0.2s;
+  white-space: nowrap;
 }
 
 a.candidatar:hover {
@@ -141,6 +177,7 @@ a.candidatar:hover {
 }
 
 .containerVaga {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -154,6 +191,12 @@ a.candidatar:hover {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 20px;
+}
+
+.tituloEtapas {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
 }
 
 .linha {
@@ -170,8 +213,8 @@ a.candidatar:hover {
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
-  max-width: 700px;
-  width: 100%;
+  max-width: 750px;
+  width: 90%;
 }
 
 .processoSeletivoBox {
@@ -206,10 +249,22 @@ a.candidatar:hover {
   gap: 30px;
 }
 
+@media (max-width: 1000px) {
+  .containerEtapas {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 700px) {
+  .containerEtapas {
+    grid-template-columns: 1fr;
+  }
+}
+
 .cardEtapa {
   padding: 50px 30px;
   border-radius: 10px;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -283,7 +338,6 @@ a.candidatar:hover {
   box-shadow: 0px 8px 20px -8px rgb(0 0 0 / 35%);
   border-radius: 10px;
   margin-bottom: 40px;
-  width: 100%;
 }
 
 /* .faq-lista {
@@ -321,6 +375,22 @@ a.candidatar:hover {
   z-index: -1;
 }
 
+.bottomSobre {
+  width: calc(194% + 1.3px);
+  height: 139px;
+  fill: #fff;
+  z-index: -1;
+}
+
+@media (max-width: 650px) {
+  .topSobre {
+    width: calc(214% + 1.3px);
+  }
+  .bottomSobre {
+    width: calc(274% + 1.3px);
+  }
+}
+
 #sobrePontoCom p {
   color: white;
 }
@@ -340,17 +410,29 @@ a.candidatar:hover {
   font-size: 2rem;
 }
 
-.bottomSobre {
-  width: calc(194% + 1.3px);
-  height: 139px;
-  fill: #fff;
-  z-index: -1;
-}
-
 .video {
   border: 10px solid #7221db;
-  width: 60%;
+  width: 100%;
+  max-width: 750px;
   height: 450px;
+}
+
+@media (max-width: 780px) {
+  .video {
+    height: 400px;
+  }
+}
+
+@media (max-width: 650px) {
+  .video {
+    height: 300px;
+  }
+}
+
+@media (max-width: 500px) {
+  .video {
+    height: 250px;
+  }
 }
 
 .containerSobre p {
@@ -377,6 +459,16 @@ a.candidatar:hover {
 
 .btnsSocial a:hover {
   background: #ddd;
+}
+
+@media (max-width: 358px) {
+  .btnsSocial {
+    gap: 10px;
+  }
+
+  .btnsSocial a {
+    padding: 7px 14px;
+  }
 }
 
 #faq {
@@ -447,4 +539,68 @@ a.candidatar:hover {
 
 footer {
   margin-top: 50px;
+}
+
+.checkbtn {
+  display: none;
+  font-size: 30px;
+  line-height: 80px;
+  cursor: pointer;
+}
+
+#check {
+  display: none;
+}
+
+@media (max-width: 952px) {
+  label.logo {
+    font-size: 30px;
+    padding-left: 50px;
+  }
+  nav ul li a {
+    font-size: 16px;
+  }
+}
+@media (max-width: 858px) {
+  .checkbtn {
+    display: block;
+  }
+  ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #571db2;
+    top: 100px;
+    left: -120%;
+    text-align: center;
+    transition: all 0.5s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    padding-top: 15px;
+  }
+  nav ul li {
+    display: block;
+    text-align: left;
+    padding-left: 30px;
+    margin: 10px 0;
+    line-height: 30px;
+  }
+  nav ul li a {
+    font-size: 20px;
+    color: white;
+  }
+  a:hover,
+  a.active {
+    background: none;
+    color: #5434af;
+  }
+  #check:checked ~ ul {
+    left: 0;
+  }
 }
